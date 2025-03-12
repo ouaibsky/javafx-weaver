@@ -29,7 +29,8 @@ jobs:
       id: tag
       run: |
         USER_TAG=${{ github.event.inputs.add_tag }}
-        echo "::set-output add_tag=value::${USER_TAG:-"false"}"
+        USER_TAG=${USER_TAG:-"false"}
+        run: echo "{add_tag}=${USER_TAG}" >> $GITHUB_OUTPUT
           
     - uses: actions/checkout@v4
     
