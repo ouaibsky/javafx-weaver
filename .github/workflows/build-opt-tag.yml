@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Build and optionally tag
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
     - name: Set tag option
       id: tag
       run: |
-        USER_TAG=${{ github.event.inputs.add_tag }}
+        USER_TAG=${{ github.event.inputs.add-tag }}
         USER_TAG=${USER_TAG:-false}
         USER_TAG=${USER_TAG,,}
         echo "add_tag=${USER_TAG}" >> $GITHUB_OUTPUT
